@@ -53,7 +53,7 @@ public class ArborView extends JFrame {
         setResizable(false);    //TODO: Improve and allow for manual resizing?
         setVisible(true);
         
-        addKeyListener(ArborInput.getKeyboard());
+        ArborInput.register(this);
     }
 
     public void update() {

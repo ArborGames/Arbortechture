@@ -5,7 +5,9 @@
  */
 package arbor.control;
 
+import arbor.util.ArborVector;
 import javafx.scene.input.KeyCode;
+import javax.swing.JFrame;
 
 /**
  *
@@ -18,17 +20,22 @@ public class ArborInput {
     }
 
     private static Keyboard keyboard = new Keyboard();
+    private static Mouse mouse = new Mouse();
+
+    public static void register(JFrame relativeTo) {
+        relativeTo.addKeyListener(keyboard);
+        relativeTo.addMouseListener(mouse);
+        relativeTo.addMouseMotionListener(mouse);
+        relativeTo.addMouseWheelListener(mouse);
+    }
 
     public static void update() {
         keyboard.update();
-    }
-
-    public static Keyboard getKeyboard() {
-        return keyboard;
+        mouse.update();
     }
 
     // ***********************
-    //      KEYBOARD
+    //        KEYBOARD
     // ***********************
     public static boolean getKey(KeyCode key) {
         return keyboard.getKey(key);
@@ -37,8 +44,31 @@ public class ArborInput {
     public static boolean getKeyDown(KeyCode key) {
         return keyboard.getKeyDown(key);
     }
-    
+
     public static boolean getKeyUp(KeyCode key) {
         return keyboard.getKeyUp(key);
+    }
+
+    // ***********************
+    //         MOUSE
+    // ***********************
+    public static int getMouseWheelDelta() {
+        return mouse.getMouseWheelDelta();
+    }
+
+    public static boolean getMouseButton(int buttonId) {
+        return mouse.getMouseButton(buttonId);
+    }
+
+    public static boolean getMouseButtonDown(int buttonId) {
+        return mouse.getMouseButtonDown(buttonId);
+    }
+
+    public static boolean getMouseButtonUp(int buttonId) {
+        return mouse.getMouseButtonUp(buttonId);
+    }
+
+    public static ArborVector getMousePosition() {
+        return mouse.getMousePosition();
     }
 }
