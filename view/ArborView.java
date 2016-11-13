@@ -5,6 +5,7 @@
  */
 package arbor.view;
 
+import arbor.control.ArborInput;
 import arbor.model.scene.SceneManager;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -51,6 +52,8 @@ public class ArborView extends JFrame {
         add(view);
         setResizable(false);    //TODO: Improve and allow for manual resizing?
         setVisible(true);
+        
+        addKeyListener(ArborInput.getKeyboard());
     }
 
     public void update() {
