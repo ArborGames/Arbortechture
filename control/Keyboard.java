@@ -36,12 +36,18 @@ class Keyboard implements KeyListener {
     }
 
     void update() {
-        prevKeyboard = currKeyboard;
+        prevKeyboard.putAll(currKeyboard);
     }
 
     public boolean getKey(KeyCode key) {
         return currKeyboard.getOrDefault(key.toString(), Boolean.FALSE);
     }
-    
-    //TODO: Other 'getKey' type functions, e.g. getKeyDown()
+
+    public boolean getKeyDown(KeyCode key) { 
+        return (!prevKeyboard.getOrDefault(key.toString(), Boolean.FALSE) && currKeyboard.getOrDefault(key.toString(), Boolean.FALSE));
+    }
+
+    public boolean getKeyUp(KeyCode key) {
+        return (prevKeyboard.getOrDefault(key.toString(), Boolean.FALSE) && !currKeyboard.getOrDefault(key.toString(), Boolean.FALSE));
+    }
 }

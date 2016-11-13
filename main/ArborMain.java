@@ -5,6 +5,7 @@
  */
 package arbor.main;
 
+import arbor.control.ArborInput;
 import arbor.external.ArborProperties;
 import arbor.model.scene.SceneManager;
 import arbor.view.ArborView;
@@ -33,6 +34,7 @@ public class ArborMain {
             if (dt > updateInterval) {
                 SceneManager.getInstance().update();
                 ArborView.getInstance().update();
+                ArborInput.update();
                 lastTime = System.currentTimeMillis();
             }
         }

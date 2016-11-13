@@ -27,7 +27,18 @@ public class ArborInput {
         return keyboard;
     }
 
+    // ***********************
+    //      KEYBOARD
+    // ***********************
     public static boolean getKey(KeyCode key) {
         return keyboard.getKey(key);
+    }
+
+    public static boolean getKeyDown(KeyCode key) {
+        return keyboard.getKeyDown(key);
+    }
+    
+    public static boolean getKeyUp(KeyCode key) {
+        return keyboard.getKeyUp(key);
     }
 }
