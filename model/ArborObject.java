@@ -23,8 +23,8 @@ public abstract class ArborObject {
         position.set(x, y);
         this.rotation = rotation;
     }
-    
-    public ArborObject(ArborVector position, float rotation){
+
+    public ArborObject(ArborVector position, float rotation) {
         this.position = position;
         this.rotation = rotation;
     }
@@ -35,6 +35,14 @@ public abstract class ArborObject {
 
     public float getRotation() {
         return rotation;
+    }
+
+    public void setPosition(ArborVector position) {
+        this.position = position;
+    }
+
+    public void setRotation(float rotation) {
+        this.rotation = rotation;
     }
 
     public abstract void update();

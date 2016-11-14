@@ -160,6 +160,6 @@ public final class ArborVector implements Cloneable {
     }
 
     public static ArborVector div(ArborVector v, float d) {
-        return new ArborVector(v.x * d, v.y * d);
+        return new ArborVector(v.x / d, v.y / d);
     }
 }

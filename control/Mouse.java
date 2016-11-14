@@ -27,6 +27,7 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
 
     void update() {
         prevMouse.putAll(currMouse);
+        mouseWheelDelta = 0;
     }
 
     //TODO: Implement all mouse methods
@@ -67,7 +68,7 @@ public class Mouse implements MouseListener, MouseMotionListener, MouseWheelList
 
     @Override
     public void mouseWheelMoved(MouseWheelEvent e) {
-        mouseWheelDelta = e.getScrollAmount();
+        mouseWheelDelta = e.getUnitsToScroll();
     }
 
     //Accessor methods

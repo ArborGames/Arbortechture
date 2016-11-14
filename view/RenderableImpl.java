@@ -38,11 +38,10 @@ public class RenderableImpl implements Renderable {
         if (sprite == null) {
             return;
         }
-        float scale = Camera.main.getScale();
         ArborVector camPos = Camera.main.getPosition();
         AffineTransform transform = new AffineTransform();
-        transform.translate((x + camPos.x) * scale, (y + camPos.y) * scale);
-        transform.rotate(rotation, (width / 2) * scale, (width / 2) * scale);
-        canvas.drawImage(sprite.getScaledInstance((int)(width * scale), (int)(height * scale), SCALE_SMOOTH), transform, ArborView.getInstance().view);
+        transform.translate(x + camPos.x, y + camPos.y);
+        transform.rotate(rotation, width / 2, height / 2);
+        canvas.drawImage(sprite, transform, ArborView.getInstance().view);
     }
 }

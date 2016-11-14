@@ -36,7 +36,9 @@ public class ArborView extends JFrame {
             //Clear background
             spriteBatch.setColor(Color.BLACK);
             spriteBatch.fillRect(0, 0, getSize().width, getSize().height);
+            spriteBatch.scale(Camera.main.getScale(), Camera.main.getScale());
             SceneManager.getInstance().render(spriteBatch);
+
         }
     }
 
@@ -53,7 +55,7 @@ public class ArborView extends JFrame {
         setResizable(false);    //TODO: Improve and allow for manual resizing?
         setVisible(true);
         
-        ArborInput.register(this);
+        ArborInput.register(view);
     }
 
     public void update() {

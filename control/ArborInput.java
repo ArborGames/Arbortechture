@@ -6,8 +6,9 @@
 package arbor.control;
 
 import arbor.util.ArborVector;
+import arbor.view.Camera;
 import javafx.scene.input.KeyCode;
-import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,7 +23,7 @@ public class ArborInput {
     private static Keyboard keyboard = new Keyboard();
     private static Mouse mouse = new Mouse();
 
-    public static void register(JFrame relativeTo) {
+    public static void register(JPanel relativeTo) {
         relativeTo.addKeyListener(keyboard);
         relativeTo.addMouseListener(mouse);
         relativeTo.addMouseMotionListener(mouse);
@@ -70,5 +71,9 @@ public class ArborInput {
 
     public static ArborVector getMousePosition() {
         return mouse.getMousePosition();
+    }
+
+    public static ArborVector getScaledMousePoisition() {
+        return ArborVector.div(mouse.getMousePosition(), Camera.main.getScale());
     }
 }
