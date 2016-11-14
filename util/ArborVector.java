@@ -102,6 +102,14 @@ public final class ArborVector implements Cloneable {
         return false;
     }
 
+    public static ArborVector rotate(ArborVector v, float radians) {
+        float sin = (float)Math.sin(radians);
+        float cos = (float)Math.cos(radians);
+        
+        ArborVector toReturn = new ArborVector((cos * v.x) - (sin * v.y), (sin * v.x) + (cos * v.y));
+        return toReturn;
+    }
+
     /* **************************************
                 VECTOR OPERATORS
        **************************************

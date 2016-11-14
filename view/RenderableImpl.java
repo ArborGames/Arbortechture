@@ -42,6 +42,6 @@ public class RenderableImpl implements Renderable {
         AffineTransform transform = new AffineTransform();
         transform.translate(x + camPos.x, y + camPos.y);
         transform.rotate(rotation, width / 2, height / 2);
-        canvas.drawImage(sprite, transform, ArborView.getInstance().view);
+        canvas.drawImage(sprite.getScaledInstance(width, height, SCALE_SMOOTH), transform, ArborView.getInstance().view);
     }
 }

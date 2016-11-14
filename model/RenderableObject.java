@@ -31,7 +31,7 @@ public abstract class RenderableObject extends ArborObject implements Renderable
     }
     
     @Override
-    public final void render(Graphics2D canvas) {
+    public void render(Graphics2D canvas) {
         renderable.render(canvas, (int) position.x, (int) position.y, rotation);
     }
 
